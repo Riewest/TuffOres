@@ -47,11 +47,11 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
-            arg '-mixin.config=create.mixins.json'
-            arg '-mixin.config=flywheel.mixins.json'
-            property 'forge.logging.console.level', 'info'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            // arg '-mixin.config=create.mixins.json'
+            // arg '-mixin.config=flywheel.mixins.json'
+            // property 'forge.logging.console.level', 'info'
+            // property 'mixin.env.remapRefMap', 'true'
+            // property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             // Recommended logging data for a userdev environment
             // The markers can be added/remove as needed separated by commas.
@@ -194,8 +194,8 @@ dependencies {
     // runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}")
 
     
-    implementation fg.deobf("curse.maven:create-328085:3934676")
-    implementation fg.deobf("curse.maven:flywheel-486392:3934664")
+    // implementation fg.deobf("curse.maven:create-328085:3934676")
+    // implementation fg.deobf("curse.maven:flywheel-486392:3934664")
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
