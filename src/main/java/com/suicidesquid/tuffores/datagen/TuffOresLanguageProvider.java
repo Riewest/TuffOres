@@ -3,8 +3,6 @@ package com.suicidesquid.tuffores.datagen;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-import org.apache.commons.lang3.text.WordUtils;
-
 import com.suicidesquid.tuffores.TuffOres;
 import com.suicidesquid.tuffores.setup.Registration;
 
@@ -21,6 +19,7 @@ public class TuffOresLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
+        // add("itemGroup." + TuffOres.MODID, "Tuff Ores");
 
         for (RegistryObject<Block> regBlock : Registration.BLOCKS.getEntries()) {
             String readableName = Arrays.stream(regBlock.getId().getPath().replace("_", " ").split(" "))
