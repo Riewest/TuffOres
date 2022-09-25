@@ -7,6 +7,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class TuffOresItemModels extends ItemModelProvider{
@@ -17,7 +18,7 @@ public class TuffOresItemModels extends ItemModelProvider{
     @Override
     protected void registerModels() {
         for (RegistryObject<Item> regBlockItem : Registration.ITEMS.getEntries()) {
-            withExistingParent(regBlockItem.get().getRegistryName().getPath(), modLoc("block/" + regBlockItem.getId().getPath()));
+            withExistingParent(ForgeRegistries.ITEMS.getKey(regBlockItem.get()).getPath(), modLoc("block/" + regBlockItem.getId().getPath()));
         }
     }
 }
