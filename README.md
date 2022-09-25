@@ -9,3 +9,7 @@ This mod adds "Tuff Ore Variants" of vanilla ores. The tuff ores are extremely h
 
 ### Examples
 Some Example Large Ore Deposit Configs can be found in this repository in the [large_deposits_example](./large_deposits_example/)
+
+
+### Modpack Use
+No permission needed, use it in any packs you want.
