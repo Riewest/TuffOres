@@ -28,5 +28,7 @@ public class TuffOresLanguageProvider extends LanguageProvider {
             add(regBlock.get(), readableName);
         }
 
+        add(Registration.TUFF_ORES_MODULE.get(), "Tuff Ores Module");
+
     }
 }

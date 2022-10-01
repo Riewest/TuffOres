@@ -16,7 +16,7 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 
 
-version = '1.0.1'
+version = '1.0.2'
 group = 'com.suicidesquid.tuffores' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'tuffores'
 
@@ -144,26 +144,6 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     maven {
-        // Location of the maven that hosts JEI files (and TiC)
-        name 'Progwml6 maven'
-        url 'https://dvs1.progwml6.com/files/maven'
-    }
-    /*maven {
-        // Location of a maven mirror for JEI files, as a fallback
-        name 'ModMaven'
-        url 'https://modmaven.k-4u.nl'
-    }*/
-    maven {
-        // Location of the maven for vazkii's mods
-        name 'blamejared'
-        url 'https://maven.blamejared.com'
-    }
-    maven {
-        // Location of the maven for mixed mappings, Registrate, and Flywheel
-        name 'tterrag maven'
-        url 'https://maven.tterrag.com'
-    }
-    maven {
         url 'https://www.cursemaven.com'
         content {
             includeGroup "curse.maven"
@@ -193,7 +173,8 @@ dependencies {
     // compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}:api")
     // runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}")
 
-    
+    implementation fg.deobf("curse.maven:scannable-266784:3738448")
+    compileOnly fg.deobf("curse.maven:scannable-266784:3738448")
     // implementation fg.deobf("curse.maven:create-328085:3934676")
     // implementation fg.deobf("curse.maven:flywheel-486392:3934664")
 }

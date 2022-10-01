@@ -16,8 +16,13 @@ public class TuffOresItemModels extends ItemModelProvider{
 
     @Override
     protected void registerModels() {
-        for (RegistryObject<Item> regBlockItem : Registration.ITEMS.getEntries()) {
+        for (RegistryObject<Item> regBlockItem : Registration.BLOCK_ITEMS.getEntries()) {
             withExistingParent(regBlockItem.get().getRegistryName().getPath(), modLoc("block/" + regBlockItem.getId().getPath()));
         }
+
+
+        singleTexture(Registration.TUFF_ORES_MODULE.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/"+ Registration.TUFF_ORES_MODULE.getId().getPath()));
     }
 }
