@@ -10,13 +10,15 @@ buildscript {
 }
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 plugins {
+    // id "architectury-plugin" version "3.4-SNAPSHOT"
+    // id "dev.architectury.loom" version "1.0-SNAPSHOT" apply false
     id 'eclipse'
     id 'maven-publish'
 }
 apply plugin: 'net.minecraftforge.gradle'
 
 
-version = '1.0.1'
+version = '1.0.3'
 group = 'com.suicidesquid.tuffores' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'tuffores'
 
@@ -67,6 +69,9 @@ minecraft {
 
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', 'tuffores'
+
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
                 tuffores {
@@ -144,26 +149,6 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     maven {
-        // Location of the maven that hosts JEI files (and TiC)
-        name 'Progwml6 maven'
-        url 'https://dvs1.progwml6.com/files/maven'
-    }
-    /*maven {
-        // Location of a maven mirror for JEI files, as a fallback
-        name 'ModMaven'
-        url 'https://modmaven.k-4u.nl'
-    }*/
-    maven {
-        // Location of the maven for vazkii's mods
-        name 'blamejared'
-        url 'https://maven.blamejared.com'
-    }
-    maven {
-        // Location of the maven for mixed mappings, Registrate, and Flywheel
-        name 'tterrag maven'
-        url 'https://maven.tterrag.com'
-    }
-    maven {
         url 'https://www.cursemaven.com'
         content {
             includeGroup "curse.maven"
@@ -175,7 +160,8 @@ dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.19.2-43.1.27'
+    minecraft 'net.minecraftforge:forge:1.19.2-43.2.0'
+    // api "dev.architectury:architectury-forge:6.3.49"
 
     // Real mod deobf dependency examples - these get remapped to your current mappings
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
@@ -193,7 +179,11 @@ dependencies {
     // compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}:api")
     // runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}")
 
-    
+    implementation fg.deobf("curse.maven:scannable-266784:4284889")
+    compileOnly fg.deobf("curse.maven:scannable-266784:4284889")
+    implementation fg.deobf("curse.maven:architectury-419699:4476084")
+    compileOnly fg.deobf("curse.maven:architectury-419699:4476084")
+    implementation fg.deobf("curse.maven:jei-238222:3884337")
     // implementation fg.deobf("curse.maven:create-328085:3934676")
     // implementation fg.deobf("curse.maven:flywheel-486392:3934664")
 }

@@ -1,7 +1,10 @@
 package com.suicidesquid.tuffores.setup;
 
+import javax.annotation.Nullable;
+
 import com.suicidesquid.tuffores.TuffOres;
 import com.suicidesquid.tuffores.blocks.TuffOre;
+import com.suicidesquid.tuffores.items.TuffOresScannerModuleItem;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -11,6 +14,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -25,6 +29,7 @@ public class Registration {
     public static final float DEFAULT_STRENGTH_SCALAR = 3;  //Based on iron ore strength of 3
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, TuffOres.MODID);
+    public static final DeferredRegister<Item> BLOCK_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TuffOres.MODID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TuffOres.MODID);
 
     
@@ -32,6 +37,7 @@ public class Registration {
     public static void init(){
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         BLOCKS.register(bus);
+        BLOCK_ITEMS.register(bus);
         ITEMS.register(bus);
     }
 
@@ -46,7 +52,15 @@ public class Registration {
     }
 
     public static <B extends Block> RegistryObject<Item> fromBlock(RegistryObject<B> block) {
-        return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), ITEM_PROPERTIES));
+        return BLOCK_ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), ITEM_PROPERTIES));
+    }
+
+    public static RegistryObject<Item> scannableRegistration(){
+        if(ModList.get().isLoaded("scannable"))
+        {
+            return ITEMS.register("tuff_ores_module", () -> new TuffOresScannerModuleItem(ITEM_PROPERTIES));
+        }
+        return null;
     }
 
     public static final RegistryObject<Block> TUFF_IRON_ORE = registerOreBlock("tuff_iron_ore", Items.RAW_IRON);
@@ -57,5 +71,8 @@ public class Registration {
     public static final RegistryObject<Block> TUFF_COAL_ORE = registerOreBlock("tuff_coal_ore", Items.COAL) ;
     public static final RegistryObject<Block> TUFF_EMERALD_ORE = registerOreBlock("tuff_emerald_ore", Items.EMERALD);
     public static final RegistryObject<Block> TUFF_COPPER_ORE = registerOreBlock("tuff_copper_ore", Items.RAW_COPPER);
+
+    @Nullable
+    public static final RegistryObject<Item> TUFF_ORES_MODULE = scannableRegistration();
 
 }
