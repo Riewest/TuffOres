@@ -20,5 +20,12 @@ public class TuffOresItemModels extends ItemModelProvider{
         for (RegistryObject<Item> regBlockItem : Registration.ITEMS.getEntries()) {
             withExistingParent(ForgeRegistries.ITEMS.getKey(regBlockItem.get()).getPath(), modLoc("block/" + regBlockItem.getId().getPath()));
         }
+
+
+        if (Registration.TUFF_ORES_MODULE != null){
+            singleTexture(Registration.TUFF_ORES_MODULE.getId().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/"+ Registration.TUFF_ORES_MODULE.getId().getPath()));
+        }        
     }
 }

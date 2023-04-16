@@ -6,5 +6,6 @@
   "block.tuffores.tuff_gold_ore": "Tuff Gold Ore",
   "block.tuffores.tuff_iron_ore": "Tuff Iron Ore",
   "block.tuffores.tuff_lapis_ore": "Tuff Lapis Ore",
-  "block.tuffores.tuff_redstone_ore": "Tuff Redstone Ore"
+  "block.tuffores.tuff_redstone_ore": "Tuff Redstone Ore",
+  "item.tuffores.tuff_ores_module": "Tuff Ores Module"
 }
