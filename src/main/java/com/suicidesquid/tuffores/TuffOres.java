@@ -35,8 +35,11 @@ public class TuffOres
         IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus();
         // Register 'ModSetup::init' to be called at mod setup time (server and client)
         modbus.addListener(ModSetup::init);
+        
         // Register 'ClientSetup::init' to be called at mod setup time (client only)
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modbus.addListener(ClientSetup::init));
+
+        modbus.addListener(ModSetup::addCreative);
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

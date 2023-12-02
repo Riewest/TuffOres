@@ -41,7 +41,7 @@ public class Registration {
         ITEMS.register(bus);
     }
 
-    public static final Item.Properties ITEM_PROPERTIES = new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final Item.Properties ITEM_PROPERTIES = new Item.Properties();
 
 
 

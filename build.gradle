@@ -40,7 +40,7 @@ minecraft {
     //
     // Use non-default mappings at your own risk. They may not always work.
     // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: 'official', version: '1.19.2'
+    mappings channel: 'official', version: '1.19.3'
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
 
@@ -53,6 +53,7 @@ minecraft {
             // arg '-mixin.config=flywheel.mixins.json'
             // property 'forge.logging.console.level', 'info'
             // property 'mixin.env.remapRefMap', 'true'
+            // property 'mixin.env.disableRefMap', 'true'
             // property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             // Recommended logging data for a userdev environment
@@ -90,6 +91,9 @@ minecraft {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', 'tuffores'
 
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
             mods {
                 tuffores {
                     source sourceSets.main
@@ -118,6 +122,9 @@ minecraft {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', 'tuffores'
 
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
             mods {
                 tuffores {
                     source sourceSets.main
@@ -134,6 +141,9 @@ minecraft {
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
             args '--mod', 'tuffores', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
                 tuffores {
@@ -160,7 +170,7 @@ dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.19.2-43.2.0'
+    minecraft 'net.minecraftforge:forge:1.19.3-44.1.23'
     // api "dev.architectury:architectury-forge:6.3.49"
 
     // Real mod deobf dependency examples - these get remapped to your current mappings
@@ -179,11 +189,15 @@ dependencies {
     // compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}:api")
     // runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}")
 
-    implementation fg.deobf("curse.maven:scannable-266784:4284889")
-    compileOnly fg.deobf("curse.maven:scannable-266784:4284889")
-    implementation fg.deobf("curse.maven:architectury-419699:4476084")
-    compileOnly fg.deobf("curse.maven:architectury-419699:4476084")
-    implementation fg.deobf("curse.maven:jei-238222:3884337")
+    implementation fg.deobf("curse.maven:scannable-266784:4352640")
+    // compileOnly fg.deobf("curse.maven:scannable-266784:4352640")
+
+    implementation fg.deobf("curse.maven:architectury-419699:4555756")
+    // compileOnly fg.deobf("curse.maven:architectury-419699:4555756")
+    // runtimeOnly fg.deobf("curse.maven:architectury-419699:4555756")
+
+
+    implementation fg.deobf("curse.maven:jei-238222:4455246")
     // implementation fg.deobf("curse.maven:create-328085:3934676")
     // implementation fg.deobf("curse.maven:flywheel-486392:3934664")
 }

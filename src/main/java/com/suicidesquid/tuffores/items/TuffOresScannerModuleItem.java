@@ -10,6 +10,7 @@ import com.suicidesquid.tuffores.setup.Registration;
 
 import li.cil.scannable.api.scanning.BlockScannerModule;
 import li.cil.scannable.api.scanning.ScanResultProvider;
+import li.cil.scannable.client.scanning.ScanResultProviderBlock;
 import li.cil.scannable.client.scanning.ScanResultProviders;
 import li.cil.scannable.client.scanning.filter.BlockCacheScanFilter;
 import li.cil.scannable.common.ModCreativeTabs;
@@ -33,7 +34,7 @@ public class TuffOresScannerModuleItem extends Item {
     private final ICapabilityProvider capabilityProvider;
 
     public TuffOresScannerModuleItem(Properties properties) {
-        super(properties.tab(ModCreativeTabs.COMMON));
+        super(properties);
         this.capabilityProvider = new ScannerModuleWrapper(new TuffOresScannerModule());
     }
 
@@ -53,6 +54,8 @@ public class TuffOresScannerModuleItem extends Item {
         }
     }
 
+    
+
     protected class TuffOresScannerModule implements BlockScannerModule{
         @Override
         public int getEnergyCost(ItemStack arg0) {
@@ -60,12 +63,7 @@ public class TuffOresScannerModuleItem extends Item {
             return 75;
         }
 
-        @Override
-        @Nullable
-        public ScanResultProvider getResultProvider() {
-            // TODO Auto-generated method stub
-            return ScanResultProviders.BLOCKS.get();
-        }
+       
 
         @Override
         public Predicate<BlockState> getFilter(ItemStack arg0) {
@@ -74,6 +72,14 @@ public class TuffOresScannerModuleItem extends Item {
                 blocks.add(regBlock.get());
             }
             return new BlockCacheScanFilter(blocks);
+        }
+
+
+
+        @Override
+        public ScanResultProvider getResultProvider() {
+            // TODO Auto-generated method stub
+            return new ScanResultProviderBlock();
         }
     }
 
