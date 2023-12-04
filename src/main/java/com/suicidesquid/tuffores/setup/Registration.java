@@ -11,8 +11,8 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -46,7 +46,7 @@ public class Registration {
 
 
     private static  RegistryObject<Block> registerOreBlock(String name, Item dropItem){
-        RegistryObject<Block> toReturn = BLOCKS.register(name, () -> new TuffOre(BlockBehaviour.Properties.of(Material.STONE).strength(TARGET_RAW_ORE_PER_BLOCK * DEFAULT_STRENGTH_SCALAR), dropItem));
+        RegistryObject<Block> toReturn = BLOCKS.register(name, () -> new TuffOre(BlockBehaviour.Properties.copy(Blocks.STONE).strength(TARGET_RAW_ORE_PER_BLOCK * DEFAULT_STRENGTH_SCALAR), dropItem));
         fromBlock(toReturn);
         return toReturn;
     }
