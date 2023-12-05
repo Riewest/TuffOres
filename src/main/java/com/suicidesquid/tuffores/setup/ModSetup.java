@@ -1,32 +1,14 @@
 package com.suicidesquid.tuffores.setup;
 
-import com.suicidesquid.tuffores.TuffOres;
-import com.suicidesquid.tuffores.blocks.TuffOre;
-
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModSetup {
     public static final String TAB_NAME = "tuffores";
-    // public static final String TAB_NAME = "tuffores";
-
-    // public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab(TAB_NAME) {
-    //     @Override
-    //     public ItemStack makeIcon() {
-    //         return new ItemStack(Registration.TUFF_DIAMOND_ORE.get());
-    //     }
-    // };
-
 
     public static void init(final FMLCommonSetupEvent event) {
     }

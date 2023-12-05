@@ -9,61 +9,19 @@
           "functions": [
             {
               "add": false,
-              "count": 64.0,
+              "count": 1.0,
               "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:explosion_decay"
             }
           ],
           "name": "minecraft:raw_iron"
         }
       ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": 55.0,
-              "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:explosion_decay"
-            }
-          ],
-          "name": "minecraft:raw_iron"
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 26.600006,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:explosion_decay"
-            }
-          ],
-          "name": "minecraft:raw_iron"
-        }
-      ],
-      "rolls": 1.0
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 146.3,
+        "min": 119.7
+      }
     }
-  ]
+  ],
+  "random_sequence": "tuffores:blocks/tuff_iron_ore"
 }

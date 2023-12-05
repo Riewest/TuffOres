@@ -17,7 +17,8 @@ public class TuffOresItemModels extends ItemModelProvider{
 
     @Override
     protected void registerModels() {
-        for (RegistryObject<Item> regBlockItem : Registration.ITEMS.getEntries()) {
+        for (RegistryObject<Item> regBlockItem : Registration.BLOCK_ITEMS.getEntries()) {
+            
             withExistingParent(ForgeRegistries.ITEMS.getKey(regBlockItem.get()).getPath(), modLoc("block/" + regBlockItem.getId().getPath()));
         }
 

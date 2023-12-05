@@ -1,6 +1,7 @@
 package com.suicidesquid.tuffores;
 
 import com.mojang.logging.LogUtils;
+import com.suicidesquid.tuffores.datagen.DataGeneration;
 import com.suicidesquid.tuffores.setup.ClientSetup;
 import com.suicidesquid.tuffores.setup.ModSetup;
 import com.suicidesquid.tuffores.setup.Registration;
@@ -40,6 +41,7 @@ public class TuffOres
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modbus.addListener(ClientSetup::init));
 
         modbus.addListener(ModSetup::addCreative);
+        modbus.addListener(DataGeneration::generate);
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

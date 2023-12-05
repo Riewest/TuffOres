@@ -1,0 +1,12 @@
+{
+  "values": [
+    "tuffores:tuff_iron_ore",
+    "tuffores:tuff_gold_ore",
+    "tuffores:tuff_diamond_ore",
+    "tuffores:tuff_lapis_ore",
+    "tuffores:tuff_redstone_ore",
+    "tuffores:tuff_coal_ore",
+    "tuffores:tuff_emerald_ore",
+    "tuffores:tuff_copper_ore"
+  ]
+}

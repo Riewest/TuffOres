@@ -7,7 +7,6 @@ import com.suicidesquid.tuffores.blocks.TuffOre;
 import com.suicidesquid.tuffores.items.TuffOresScannerModuleItem;
 
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
@@ -27,6 +26,8 @@ public class Registration {
     public static final int TARGET_RAW_ORE_PER_BLOCK = TARGET_RAW_ORE_PER_VEIN / TARGET_ORE_BLOCKS_PER_VEIN;
 
     public static final float DEFAULT_STRENGTH_SCALAR = 3;  //Based on iron ore strength of 3
+    public static final float DEFAULT_STRENGTH = TARGET_RAW_ORE_PER_BLOCK * DEFAULT_STRENGTH_SCALAR;
+    // public static final float DEFAULT_STRENGTH = 5f;
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, TuffOres.MODID);
     public static final DeferredRegister<Item> BLOCK_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TuffOres.MODID);
@@ -46,7 +47,7 @@ public class Registration {
 
 
     private static  RegistryObject<Block> registerOreBlock(String name, Item dropItem){
-        RegistryObject<Block> toReturn = BLOCKS.register(name, () -> new TuffOre(BlockBehaviour.Properties.copy(Blocks.STONE).strength(TARGET_RAW_ORE_PER_BLOCK * DEFAULT_STRENGTH_SCALAR), dropItem));
+        RegistryObject<Block> toReturn = BLOCKS.register(name, () -> new TuffOre(BlockBehaviour.Properties.copy(Blocks.STONE).strength(DEFAULT_STRENGTH), dropItem));
         fromBlock(toReturn);
         return toReturn;
     }
