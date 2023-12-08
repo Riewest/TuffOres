@@ -73,7 +73,7 @@ public class TuffOresScannerModuleItem extends Item {
         }
 
 
-
+        @OnlyIn(Dist.CLIENT)
         @Override
         public ScanResultProvider getResultProvider() {
             // TODO Auto-generated method stub
